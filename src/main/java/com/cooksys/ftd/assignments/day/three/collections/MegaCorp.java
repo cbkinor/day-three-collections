@@ -29,7 +29,13 @@ public class MegaCorp implements Hierarchy<Capitalist, FatCat> {
      */
     @Override
     public boolean add(Capitalist capitalist) {
-        throw new NotImplementedException();
+        if(has(capitalist))
+        	return false;
+        
+        
+        
+        else
+    	throw new NotImplementedException();
     }
 
     /**
@@ -38,7 +44,8 @@ public class MegaCorp implements Hierarchy<Capitalist, FatCat> {
      */
     @Override
     public boolean has(Capitalist capitalist) {
-        throw new NotImplementedException();
+       if(map.containsKey(capitalist)|| map.values.containsKey(capitalist))
+    	   return true;
     }
 
     /**
@@ -67,7 +74,9 @@ public class MegaCorp implements Hierarchy<Capitalist, FatCat> {
      */
     @Override
     public Set<Capitalist> getChildren(FatCat fatCat) {
-        throw new NotImplementedException();
+        
+    	
+    	throw new NotImplementedException();
     }
 
     /**
@@ -88,6 +97,6 @@ public class MegaCorp implements Hierarchy<Capitalist, FatCat> {
      */
     @Override
     public List<FatCat> getParentChain(Capitalist capitalist) {
-        throw new NotImplementedException();
+      
     }
 }
