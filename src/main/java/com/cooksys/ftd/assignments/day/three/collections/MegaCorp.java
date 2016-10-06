@@ -6,10 +6,11 @@ import com.cooksys.ftd.assignments.day.three.collections.model.FatCat;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.*;
+import java.util.Map.Entry;
 
 public class MegaCorp implements Hierarchy<Capitalist, FatCat> {
 
-	Map<FatCat, Set<Capitalist>> newMap = new HashMap<FatCat, Set<Capitalist>>();
+	Map<FatCat, Set<Capitalist>> company = new HashMap<FatCat, Set<Capitalist>>();
 	
     /**
      * Adds a given element to the hierarchy.
@@ -46,8 +47,17 @@ public class MegaCorp implements Hierarchy<Capitalist, FatCat> {
      */
     @Override
     public boolean has(Capitalist capitalist) {
-       if(map.containsKey(capitalist)|| map.values.containsKey(capitalist))
-    	   return true;
+    	if (capitalist instanceof FatCat){
+	       if(company.containsKey(capitalist)){
+	    	   return true;
+	       }else{
+	    	   for(FatCat key : company.keySet()) {
+	    		   if (company.get(key).contains(capitalist)) 
+	    			   return true;
+	    	   }
+	   		}
+    	}
+    	return false;
     }
 
     /**
@@ -102,5 +112,8 @@ public class MegaCorp implements Hierarchy<Capitalist, FatCat> {
       List<FatCat> parentList = new ArrayList<FatCat>();
       if(capitalist == null)
     	  return parentList;
+	return parentList;
+      
     }
+    
 }
