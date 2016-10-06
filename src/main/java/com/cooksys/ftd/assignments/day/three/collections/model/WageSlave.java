@@ -3,13 +3,20 @@ package com.cooksys.ftd.assignments.day.three.collections.model;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class WageSlave implements Capitalist {
+	
+	private String name;
+	private int salary;
+	private FatCat owner;
 
     public WageSlave(String name, int salary) {
-        throw new NotImplementedException();
+        this.name = name;
+        this.salary = salary;
     }
 
     public WageSlave(String name, int salary, FatCat owner) {
-        throw new NotImplementedException();
+        this.name = name;
+        this.salary = salary;
+        this.owner = owner;
     }
 
     /**
@@ -17,7 +24,7 @@ public class WageSlave implements Capitalist {
      */
     @Override
     public String getName() {
-        throw new NotImplementedException();
+        return name;
     }
 
     /**
@@ -25,7 +32,7 @@ public class WageSlave implements Capitalist {
      */
     @Override
     public int getSalary() {
-        throw new NotImplementedException();
+        return salary;
     }
 
     /**
@@ -33,7 +40,10 @@ public class WageSlave implements Capitalist {
      */
     @Override
     public boolean hasParent() {
-        throw new NotImplementedException();
+        if(owner == null)
+        	return false;
+        else
+        	return true;
     }
 
     /**
@@ -41,6 +51,33 @@ public class WageSlave implements Capitalist {
      */
     @Override
     public FatCat getParent() {
-        throw new NotImplementedException();
+        if(owner == null)
+        	return null;
+        else
+        	return owner;
     }
+    
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		WageSlave other = (WageSlave) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (owner == null) {
+			if (other.owner != null)
+				return false;
+		} else if (!owner.equals(other.owner))
+			return false;
+		if (salary != other.salary)
+			return false;
+		return true;
+	}
 }
