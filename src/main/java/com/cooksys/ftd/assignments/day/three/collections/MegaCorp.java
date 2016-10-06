@@ -9,6 +9,8 @@ import java.util.*;
 
 public class MegaCorp implements Hierarchy<Capitalist, FatCat> {
 
+	Map<FatCat, Set<Capitalist>> newMap = new HashMap<FatCat, Set<Capitalist>>();
+	
     /**
      * Adds a given element to the hierarchy.
      * <p>
@@ -97,6 +99,8 @@ public class MegaCorp implements Hierarchy<Capitalist, FatCat> {
      */
     @Override
     public List<FatCat> getParentChain(Capitalist capitalist) {
-      
+      List<FatCat> parentList = new ArrayList<FatCat>();
+      if(capitalist == null)
+    	  return parentList;
     }
 }
